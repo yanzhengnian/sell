@@ -38,7 +38,7 @@
         <ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
         <div class="rating-wrapper">
           <ul v-show="food.ratings && food.ratings.length">
-            <li v-for="rating in food.ratings" class="rating-item" >
+            <li v-show="needShow(rating.rateType,rating.text)" v-for="rating in food.ratings" class="rating-item" >
               <div class="user">
                 <span class="name">{{rating.username}}</span>
                 <img class="avatar" :src="rating.avatar" width="12" height="12">
@@ -49,7 +49,7 @@
               </p>
             </li>
           </ul>
-          <div class="no-rating" v-show="!food.ratings || !food.ratings.length"></div>
+          <div class="no-rating" v-show="!food.ratings || !food.ratings.length">暂无评价</div>
         </div>
       </div>
     </div>
@@ -61,9 +61,10 @@
 <script type="text/ecmascript-6">
   import Vue from 'vue';
   import BScroll from 'better-scroll';
+  import {formatDate} from '@/common/js/date';
   import cartcontrol from '@/components/cartcontrol/cartcontrol';
-  import split from '@/components/split/split';
   import ratingselect from '@/components/ratingselect/ratingselect';
+  import split from '@/components/split/split';
   //  const POTITIVE = 0;
   //  const NEGATIVE = 1;
   const ALL = 2;
@@ -119,6 +120,12 @@
         } else {
           return type === this.selectType;
         }
+      }
+    },
+    filters: {
+      formatDate(time) {
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm');
       }
     },
     components: {
