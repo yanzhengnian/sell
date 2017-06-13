@@ -227,8 +227,6 @@
 
       &.fade-enter, &.fade-leave-active
         opacity: 0;
-
-
       .detail-wrapper
         min-height: 100%
         width: 100%
