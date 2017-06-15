@@ -43,7 +43,7 @@
                 <span class="name">{{rating.username}}</span>
                 <img class="avatar" :src="rating.avatar" width="12" height="12">
               </div>
-              <div class="time">{{rating.rateTime}}</div>
+              <div class="time">{{rating.rateTime | formatDate}}</div>
               <p class="text">
                 <span :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></span>{{rating.text}}
               </p>
@@ -262,9 +262,13 @@
             font-size: 10px
             color: rgb(147,153,159)
           .text
+            margin-bottom: 8px
             line-height: 16px
             font-size: 12px
             color: rgb(7,17,27)
+          .recommed
+            line-height: 16px
+            font-size: 0
             .icon-thumb_up, icon-thumb_down
               margin-right: 4px
               line-height: 24px
@@ -273,4 +277,5 @@
               color: rgb(0,160,220)
             .icon-thumb_down
               color: rgb(147,153,159)
+
 </style>

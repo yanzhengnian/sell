@@ -14,11 +14,15 @@
     </div>
     <!--<div class="content">content</div>-->
     <!--路由外链-->
-    <router-view :seller="seller"></router-view>
+    <keep-alive>
+      <router-view :seller="seller" ></router-view>
+    </keep-alive>
+    <!--<router-view :goods="goods"></router-view>-->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import {urlParse} from './common/js/util';
   import header from './components/header/header.vue';
 
   const ERR_OK = 0;
@@ -26,14 +30,23 @@
   export default {
     data() {
       return {
-        seller: {}
+        seller: {
+          id: (() => {
+            let queryParam = urlParse();
+            return queryParam.id;
+          })()
+        },
+        goods: {}
       };
     },
     created() {
-      this.$http.get('/api/seller').then((response) => {
+      this.$http.get('/api/seller?id=' + this.seller.id).then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.seller = response.data;
+//          this.seller = response.data;
+          console.log(1, this.seller.id);
+          this.seller = Object.assign({}, this.seller, response.data);
+          console.log(1, this.seller.id);
         }
       });
     },
