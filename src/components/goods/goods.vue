@@ -154,11 +154,6 @@
       cartcontrol,
       food
     }
-//    events: {
-//      'cart.add'(target) {
-//        this._drop(target);
-//      }
-//    }
   };
 </script>
 

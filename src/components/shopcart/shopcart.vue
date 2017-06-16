@@ -277,7 +277,6 @@
           font-size: 16px
           font-weight: 700
           &.highlight
-            /*font-size: 22px*/
             color: #fff
         .desc
           display: inline-block
@@ -305,32 +304,18 @@
         left: 32px
         bottom: 22px
         z-index: 200
-        /*&.drop-transition*/
-          /*transition: all 0.4s*/
         .inner
           width: 16px
           height: 16px
           border-radius: 50%
           background: rgb(0,160,220)
           transition: all 0.4s linear
-          /*transition: all .9s cubic-bezier(0.49, -0.29, 0.75, 0.41);*/
-        /*&.drop-enter-active*/
-          /*transition: all 0.4s ease*/
-          /*opacity: 1*/
     .shopcart-list
       position: absolute
-      /*top: -200px*/
       bottom: 48px
       left: 0
       z-index: -1
       width: 100%
-  /*, &.fade-leave-active*/
-     /*, &.fade-leave-active*/
-      /*&.fade-enter-active*/
-        /*transition: all .5s*/
-        /*transform: translate3d(0,-100%,0)*/
-      /*&.fade-enter*/
-        /*transform: translate3d(0,0,0)*/
       .list-header
         height: 40px
         line-height: 40px
