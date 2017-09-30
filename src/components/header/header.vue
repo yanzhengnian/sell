@@ -137,7 +137,7 @@
         .descript
           margin-bottom: 10px
           line-height: 12px
-          fong-size: 12px
+          font-size: 12px
         .support
           .icon
             display: inline-block
