@@ -47,7 +47,7 @@
           <div v-if="seller.supports" class="supports">
             <li class="support-item" v-for="(item,index) in seller.supports" :key="index">
               <span class="icon" :class="classMap[seller.supports[index].type]"></span>
-              <span class="text">{{seller.supports[index].description}}</span>
+              <span class="text">{{item.description}}</span>
             </li>
           </div>
           <div class="title">
